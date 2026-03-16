@@ -112,13 +112,17 @@ patch:
   app_options:
     com.termius-dmg.mac: # Terminal - Mac
       ascii_mode: true
+    dev.warp.Warp-Stable: # Warp
+      ascii_mode: true
+    com.jetbrains.pycharm: # PyCharm Professional
+      ascii_mode: true
+    com.jetbrains.pycharm-ce: # PyCharm Community
+      ascii_mode: true
 #    com.google.Chrome: # Chrome
 #      ascii_mode: true
 #    com.coderforart.MWeb3: # MWeb
 #      ascii_mode: true
 #    com.apple.Safari: # Safari
 #      ascii_mode: true
-#    co.zeit.hyper: # 程序名
-#      ascii_mode: true # 对应的选项
 #    co.zeit.hyper: # 程序名
 #      ascii_mode: true # 对应的选项
