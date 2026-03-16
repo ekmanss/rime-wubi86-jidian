@@ -87,14 +87,14 @@ patch:
 
       hilited_corner_radius: 5                  # 圆角大小 - 高亮候选词
       hilited_candidate_text_color: 0xffffff    # 字体颜色 - 高亮候选词
-      hilited_candidate_back_color: 0x00ffffff    # 背景颜色 - 高亮候选词  8位的前两位是颜色透明度，00就是透明，FF就是不透明
+      hilited_candidate_back_color: 0x50ffffff    # 背景颜色 - 高亮候选词  半透明白色，便于暗黑模式下区分选中项
       hilited_candidate_label_color: 0x5AC461 # 字体颜色 - 高亮候选词
 
       label_font_face: PingFang SC              # 字体    - 序号
       label_font_point: 17                      # 字体大小 - 序号
       label_color: 0x77ffffff                     # 字体颜色 - 序号
 
-      candidate_text_color: 0x99ffffff            # 字体颜色 - 候选词ggtt
+      candidate_text_color: 0x99ffffff            # 字体颜色 - 候选词
       candidate_font_face: PingFang SC          # 字体    - 候选词
       candidate_font_point: 16                  # 字体大小 - 候选词
 
@@ -105,8 +105,8 @@ patch:
       inline_preedit: true                      # 输入的编码是否直接写入到输入框中，如果为 false，未上屏的编码就会写在候选框中
       spacing: 5                                # 当 inline_preedit 为 false 时，编码会出现在候选面板中，该值控制编码与候选词之间的距离
       # inline_preedit 为 false 时
-      hilited_text_color: 0x8E8E93              # 颜色 - 输入中 - 编码
-      hilited_back_color: 0xEFEFF4              # 颜色 - 输入中 - 背景
+      hilited_text_color: 0xaaaaaa              # 颜色 - 输入中 - 编码
+      hilited_back_color: 0x555555              # 颜色 - 输入中 - 背景（深灰，适配暗黑模式）
 
 # --- 特定程序定义初始状态的英文输入 ---
   app_options:

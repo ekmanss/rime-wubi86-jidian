@@ -40,6 +40,8 @@ engine:
     - punct_translator
     - reverse_lookup_translator
     - table_translator
+    - lua_translator@*wubi86_jidian_date_translator # 日期、时间、星期
+    - history_translator@repeat_last_input # 重复上一次输入
 
 speller:
 
@@ -80,3 +82,9 @@ key_binder:
 
 recognizer:
   import_preset: default
+
+# 重复上一次输入
+repeat_last_input:
+  input: z
+  size: 1
+  initial_quality: 1
