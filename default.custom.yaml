@@ -18,7 +18,7 @@ patch:
 
   # Menu
   menu:
-    page_size: 5                    # 候选词数量，最多支持 10 个
+    page_size: 9                    # 候选词数量，最多支持 10 个
   switcher:
     hotkeys:        # 弹出菜单的快捷键
       - "Control+0"
@@ -54,8 +54,8 @@ patch:
       - { when: has_menu, accept: apostrophe, send: 3 } # 候选3 用单引号
 
       # 上下翻页 [ ]
-      - { when: has_menu, accept: bracketleft, send: Page_Up }
-      - { when: has_menu, accept: bracketright, send: Page_Down }
+#      - { when: has_menu, accept: bracketleft, send: Page_Up }
+#      - { when: has_menu, accept: bracketright, send: Page_Down }
 
       # 上下翻页 - =
       - { when: has_menu, accept: minus, send: Page_Up }
@@ -66,7 +66,7 @@ patch:
       - { when: has_menu, accept: Tab, send: Page_Down }
 
       # 回车清码
-#      - { when: composing, accept: Return, send: Escape }
+      - { when: composing, accept: Return, send: Escape }
 
       # emacs key bindings, copy from https://github.com/rime/rime-prelude/blob/master/key_bindings.yaml
       - { when: composing, accept: Control+p, send: Up }
@@ -131,7 +131,7 @@ patch:
       "*": "*"
       "+": "+"
       ",": {commit: "，"}
-      "-": {commit: "-"}
+      "-": "-"
       .: {commit: "。"}
       "/": "/"
       ":": {commit: "："}
