@@ -53,6 +53,7 @@ engine:
     - history_translator@repeat_last_input # 重复上一次输入，对应下面的 repeat_last_input
   filters:
     - simplifier@tradition
+    - uniquifier
 #    - lua_filter@*wubi86_jidian_single_char_first_filter # 单字优先
 #    - lua_filter@*wubi86_jidian_single_char_only # 纯单字
 
@@ -95,13 +96,13 @@ translator:
 # 3. 根据这个文件：https://github.com/BYVoid/OpenCC/blob/master/data/dictionary/TWVariants.txt 把台湾与正常繁体不同的地方转成台湾版本的字，比如 “床”
 
 tradition:
-  #  opencc_config: s2t.json  # 简 -> 繁
-  opencc_config: s2hk.json  # 繁 -> 香港
+  opencc_config: s2t.json   # 简 -> 繁（通用标准）
+  #  opencc_config: s2hk.json  # 简 -> 香港繁体
   #  opencc_config: t2s.json   # 繁 -> 简
   #  opencc_config: t2tw.json  # 繁 -> 台湾
   #  opencc_config: t2hk.json  # 繁 -> 香港
   #  opencc_config: s2tw.json  # 簡 -> 臺灣標準
-  #  opencc_config: s2twp.json  # 簡 -> 臺灣片語
+  #  opencc_config: s2twp.json # 簡 -> 臺灣片語
   option_name: zh_trad
 
 reverse_lookup:
@@ -122,6 +123,10 @@ punctuator:
 
 key_binder:
   import_preset: default
+  __patch:
+    - bindings/+:
+        - { when: has_menu, accept: semicolon, send: 2 }  # 候选2 用分号
+        - { when: has_menu, accept: apostrophe, send: 3 } # 候选3 用单引号
 
 recognizer:
   import_preset: default

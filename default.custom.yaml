@@ -39,7 +39,7 @@ patch:
   ascii_composer:
     good_old_caps_lock: true       # true: 在保持 cap 键原有的特征， false: 点击不会切换大小写
     switch_key:
-      Caps_Lock: commit_code        # 如果想用 cap 键切换中英文输入，就修改为上面三种的任一一种，否则用 noop
+      Caps_Lock: noop               # 仅使用 Shift 切换中英文，Caps Lock 保持系统原生行为
       Shift_L: commit_code          # macOs 上 shift 键不区别左右，设置参数同上
       Shift_R: commit_code
       Control_L: noop
@@ -50,8 +50,9 @@ patch:
     bindings:
 #      - { when: has_menu, accept: comma, send: 2 }  # 候选2 用逗号选择 （修改的时候不要多加或少加空格，跟前面的对齐就好了）
 #      - { when: has_menu, accept: period, send: 3 } # 候选3 用句号选择
-      - { when: has_menu, accept: semicolon, send: 2 }  # 候选2 用分号
-      - { when: has_menu, accept: apostrophe, send: 3 } # 候选3 用单引号
+      # ; / ' 选重已下沉到五笔相关方案中，避免与简体拼音（pinyin_simp）的 ' 音节分隔符冲突
+#      - { when: has_menu, accept: semicolon, send: 2 }  # 候选2 用分号
+#      - { when: has_menu, accept: apostrophe, send: 3 } # 候选3 用单引号
 
       # 上下翻页 [ ]
 #      - { when: has_menu, accept: bracketleft, send: Page_Up }
@@ -62,8 +63,8 @@ patch:
       - { when: has_menu, accept: equal, send: Page_Down }
       
       # 上下翻页 tab
-#      - { when: has_menu, accept: Shift+Tab, send: Page_Up }
-#      - { when: has_menu, accept: Tab, send: Page_Down }
+      - { when: has_menu, accept: Shift+Tab, send: Page_Up }
+      - { when: has_menu, accept: Tab, send: Page_Down }
 
       # 回车清码
       - { when: composing, accept: Return, send: Escape }
